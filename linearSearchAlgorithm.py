@@ -1,21 +1,26 @@
-import random
-# creating a random non repeated list of integers
-items = [i for i in range(100)]
-random.shuffle(items)
+def linearSearch(searchTerm, nlist):  
+    found = False
+    count = 0
+    pos = []
+    y = 0
 
-# search term entered by user
-searchTerm = int(input('What is your search term: '))
-found = False
-position = ''
+    for x in range(0, len(nlist)):
+        
+        if (searchTerm == nlist[x]):                    
+            found = True
+            pos.append(x)            
+            count = count + 1            
 
-# loops through every item in the list
-for x in range(0, len(items)):
-    # checks to see if the item has been found
-    if (searchTerm == items[x]):
-        found = True
-        position = x
+    if (found == True):    
+        print('Found search term', count, 'times in postions', pos)
+    else:        
+        print('Not found search term therefore position -1')
 
-if (found == True):
-    print(f'Item found at position {position}')
-else:
-    print('Item not found')
+# main program
+n = [23, 56, 21, 89, 23, 54, 12, 23, 99]   
+sT = int(input('Enter the search term: '))
+linearSearch(sT, n)
+
+
+
+
